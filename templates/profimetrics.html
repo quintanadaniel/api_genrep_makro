@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<form action="/profimetrics" method="GET">
+<div class="col-md-7">
+    <table class="table table-striped table-bordered bg-white table-sm">
+        <thead>
+            <tr>
+                <td>ORIGIN_NAME</td>
+                <td>BATCH_ID</td>
+                <td>RUNDATE</td>
+                <td>ORIGIN_ID</td>
+                <td>INTERFACE_GROUP</td>
+                <td>LOAD_START_DATE</td>
+                <td>LOAD_END_DATE</td>
+                <td>ESTATUS</td>
+                <td>UPLOAD_START_DATE</td>
+                <td>UPLOAD_END_DATE</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prof in profi1 %}
+                <tr>
+                    <td>{{ prof.0 }}</td>
+                    <td>{{ prof.1 }}</td>
+                    <td>{{ prof.2 }}</td>
+                    <td>{{ prof.3 }}</td>
+                    <td>{{ prof.4 }}</td>
+                    <td>{{ prof.5 }}</td>
+                    <td>{{ prof.6 }}</td>
+                    <td>{{ prof.7 }}</td>
+                    <td>{{ prof.8 }}</td>
+                    <td>{{ prof.9 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button onclick="">
+    Exportar
+</button>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<form action="/tiendas" method="GET">
+<div class="col-md-7">
+    <table class="table table-striped table-bordered bg-white table-sm">
+        <thead>
+            <tr>
+                <td>Tienda</td>
+                <td>Nombre</td>
+                <td>Direccion</td>
+                <td>Provincia</td>
+                <td>Tipo_tienda</td>
+                <td>GLN</td>
+                <td>COT</td>
+                <td>Tienda_SIGA</td>
+                <td>Estado</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sto in store %}
+                <tr>
+                    <td>{{ sto.0 }}</td>
+                    <td>{{ sto.1 }}</td>
+                    <td>{{ sto.2 }}</td>
+                    <td>{{ sto.3 }}</td>
+                    <td>{{ sto.4 }}</td>
+                    <td>{{ sto.5 }}</td>
+                    <td>{{ sto.6 }}</td>
+                    <td>{{ sto.7 }}</td>
+                    <td>{{ sto.8 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button onclick="">
+    Exportar
+</button>
+
+{% endblock %}
