@@ -4,7 +4,9 @@ from config.database import OracleDB
 from modules.clientes.cliente import customers
 from modules.sistemas.profi import profis
 from modules.sistemas.nightrunho import nr_status
+from modules.pedidos.pedido_sin_sid import get_OcSinSid
 from modules.tiendas.tienda import stores
+
 app=Flask(__name__)
 
 
@@ -37,6 +39,12 @@ def getNr_stat():
     l_nrst = nr_status()
     print (l_nrst)
     return render_template('nrstatus.html', nrst1 = l_nrst)
+
+@app.route('/pedsinsid/', methods=['GET'])
+def getOcSinSid():
+    l_ocsinsid = get_OcSinSid()
+    print (l_ocsinsid)
+    return render_template('ocsinsid.html', ocsinsid = l_ocsinsid)
 
 @app.errorhandler(500)
 def handle_500(error):
