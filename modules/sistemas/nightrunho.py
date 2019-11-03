@@ -1,7 +1,4 @@
-from flask import Flask
-from flask import request, jsonify, render_template, request
 from config.database import OracleDB
-
 
 def profis():
     l_nrst = nr_status()

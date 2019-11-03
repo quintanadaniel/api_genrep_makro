@@ -33,7 +33,7 @@ def profimet():
     return render_template('profimetrics.html', profi1 = l_profi)
 
 @app.route('/nrstatus/', methods=['GET'])
-def nr_stat():
+def getNr_stat():
     l_nrst = nr_status()
     print (l_nrst)
     return render_template('nrstatus.html', nrst1 = l_nrst)
