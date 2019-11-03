@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'index.html' %}
 
 {% block body %}
 <form action="/tiendas" method="GET">
@@ -6,15 +6,43 @@
     <table class="table table-striped table-bordered bg-white table-sm">
         <thead>
             <tr>
-                <td>Tienda</td>
-                <td>Nombre</td>
-                <td>Direccion</td>
-                <td>Provincia</td>
-                <td>Tipo_tienda</td>
+                <td>STORE_NO</td>
+                <td>MBS_TYPE</td>
+                <td>STATUS</td>
+                <td>NAME</td>
+                <td>ADDRESS</td>
+                <td>TOWN</td>
+                <td>PHONE_NO</td>
+                <td>BANK_ACCOUNT_NO</td>
+                <td>BANK_NAME</td>
+                <td>STORE_TYPE</td>
+                <td>BUILDING</td>
+                <td>PROV_COUNTY_STATE</td>
+                <td>ADDR_PST_CD</td>
+                <td>POB_NO</td>
+                <td>POB_PST_CD</td>
+                <td>TELEX_NO</td>
+                <td>TELEFAX_NO</td>
+                <td>BANK_ADDRESS</td>
+                <td>BANK_TOWN</td>
+                <td>BANK_COUNTY</td>
+                <td>BANK_POSTAL_CD</td>
+                <td>BANK_POB_NO</td>
+                <td>BANK_POB_PST_CD</td>
+                <td>EIS_DATE</td>
+                <td>BONUS_ACTIVE_STORE</td>
+                <td>OPENING_DATE</td>
+                <td>LIKE_FOR_LIKE</td>
+                <td>REGION_NO</td>
+                <td>E_MAIL</td>
                 <td>GLN</td>
+                <td>REFURBISH_DATE</td>
+                <td>STATE_ID</td>
+                <td>REGION_PR</td>
+                <td>SHORT_NAME</td>
+                <td>CHAIN</td>
                 <td>COT</td>
-                <td>Tienda_SIGA</td>
-                <td>Estado</td>
+                <td>DELIV_CD</td>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +57,36 @@
                     <td>{{ sto.6 }}</td>
                     <td>{{ sto.7 }}</td>
                     <td>{{ sto.8 }}</td>
+                    <td>{{ sto.9 }}</td>
+                    <td>{{ sto.10 }}</td>
+                    <td>{{ sto.11 }}</td>
+                    <td>{{ sto.12 }}</td>
+                    <td>{{ sto.13 }}</td>
+                    <td>{{ sto.14 }}</td>
+                    <td>{{ sto.15 }}</td>
+                    <td>{{ sto.16 }}</td>
+                    <td>{{ sto.17 }}</td>
+                    <td>{{ sto.18 }}</td>
+                    <td>{{ sto.19 }}</td>
+                    <td>{{ sto.20 }}</td>
+                    <td>{{ sto.21 }}</td>
+                    <td>{{ sto.22 }}</td>
+                    <td>{{ sto.23 }}</td>
+                    <td>{{ sto.24 }}</td>
+                    <td>{{ sto.25 }}</td>
+                    <td>{{ sto.26 }}</td>
+                    <td>{{ sto.27 }}</td>
+                    <td>{{ sto.28 }}</td>
+                    <td>{{ sto.29 }}</td>
+                    <td>{{ sto.30 }}</td>
+                    <td>{{ sto.31 }}</td>
+                    <td>{{ sto.32 }}</td>
+                    <td>{{ sto.33 }}</td>
+                    <td>{{ sto.34 }}</td>
+                    <td>{{ sto.35 }}</td>
+                    <td>{{ sto.36 }}</td>
+                    <td>{{ sto.37 }}</td>
+                    <td>{{ sto.38 }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -21,11 +21,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('profimet') }}">Profimetrics <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tiendas') }}">Tiendas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('all_store') }}">Tiendas</a>
+                        <a class="nav-link" href="{{ url_for('clientes') }}">Clientes</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('profimet') }}">Profimetrics <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/nrstatus" id="navbarDropdown" role="button"
@@ -48,7 +51,7 @@
                 </form>
             </div>
         </nav>
-        <h1>Generador de reporte</h1>
+        <h1> </h1>
     </body>
     {% block body%}
     {% endblock %}

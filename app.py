@@ -2,7 +2,9 @@ from flask import Flask
 from flask import request, jsonify, render_template, request
 from config.database import OracleDB
 from modules.clientes.cliente import customers
-from modules.sistemas.profi import  profis
+from modules.sistemas.profi import profis
+from modules.sistemas.nightrunho import nr_status
+from modules.tiendas.tienda import stores
 app=Flask(__name__)
 
 
@@ -13,13 +15,10 @@ def Index():
 
 
 @app.route('/tiendas/', methods=['GET'])
-def all_store():
-    ora = OracleDB()
-    ora.connect()
-    ora.stores()
-    l_res = ora.stores()
-    print (l_res)
-    return render_template('tiendas.html', store = l_res)
+def getStore():
+    l_store = stores()
+    print (l_store)
+    return render_template('tiendas.html', store = l_store)
     #return l_res
 
 @app.route('/clientes/', methods=['GET'])
@@ -35,10 +34,7 @@ def profimet():
 
 @app.route('/nrstatus/', methods=['GET'])
 def nr_stat():
-    ora = OracleDB()
-    ora.connect()
-    ora.nr_status()
-    l_nrst = ora.nr_status()
+    l_nrst = nr_status()
     print (l_nrst)
     return render_template('nrstatus.html', nrst1 = l_nrst)
 

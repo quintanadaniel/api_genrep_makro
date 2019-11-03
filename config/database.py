@@ -35,23 +35,13 @@ class OracleDB:
                 ), pool_size=100)
             self.conn = self.engine.connect()
             self.rconn = self.engine.raw_connection()
-            return self.conn 
+            return self.conn
             print("conected...")
 
         except cx_Oracle.DatabaseError as e:
             self.engine = None
             print(e)
             exit(1)
-
-    def stores(self):
-            res = self.conn.execute("SELECT store_no,name,address||' '||town address,prov_county_state,store_type,gln,cot,deliv_cd,status FROM store order by store_no")
-            data = res.fetchall()
-            return data
-
-    def nr_status(self):
-            res = self.conn.execute("select * from nr_status where run_date in (select run_date from nightrun) order by start_date desc")
-            data_nrstatus = res.fetchall()
-            return data_nrstatus
 
     def connection_close(self):
         self.conn.close()
@@ -61,6 +51,4 @@ class OracleDB:
 if __name__ == '__main__':
     ora = OracleDB()
     ora.connect()
-    ora.stores()
-    ora.nr_status()
     ora.connection_close()
