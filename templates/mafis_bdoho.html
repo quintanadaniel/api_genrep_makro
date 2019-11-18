@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<head>
+        <meta http-equiv="refresh" content="10">
+</head>
+<form action="/mafismk" method="GET">
+<div class="col-md-7">
+    <table class="table table-striped table-bordered bg-white table-sm">
+        <thead>
+            <tr>
+                <td>RUN_DATE</td>
+                <td>CTRY_NAME</td>
+                <td>PROC_NAME</td>
+                <td>PROC_TYPE</td>
+                <td>STATUS</td>
+                <td>SRC_START_DATE</td>
+                <td>SRC_END_DATE</td>
+                <td>ETL_START_DATE</td>
+                <td>ETL_END_DATE</td>
+                <td>TRG_START_DATE</td>
+                <td>TRG_END_DATE</tr>
+        </thead>
+        <tbody>
+            {% for mafismk in mafismk1 %}
+                <tr>
+                    <td>{{ mafismk.0 }}</td>
+                    <td>{{ mafismk.1 }}</td>
+                    <td>{{ mafismk.2 }}</td>
+                    <td>{{ mafismk.3 }}</td>
+                    <td>{{ mafismk.4 }}</td>
+                    <td>{{ mafismk.5 }}</td>
+                    <td>{{ mafismk.6 }}</td>
+                    <td>{{ mafismk.7 }}</td>
+                    <td>{{ mafismk.8 }}</td>
+                    <td>{{ mafismk.9 }}</td>
+                    <td>{{ mafismk.10 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button onclick="">
+    Exportar
+</button>
+
+{% endblock %}

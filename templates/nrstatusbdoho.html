@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<head>
+        <meta http-equiv="refresh" content="10">
+</head>
+<form action="/nrstatusbdoho" method="GET">
+<div class="col-md-7">
+    <table class="table table-striped table-bordered bg-white table-sm">
+        <thead>
+            <tr>
+                <td>RUN_DATE</td>
+                <td>STORE_NO</td>
+                <td>PROG_NAME</td>
+                <td>LOG_NAME</td>
+                <td>START_DATE</td>
+                <td>END_DATE</td>
+                <td>EXIT_CODE</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nrst_bdoho in nrst_bdoho1 %}
+                <tr>
+                    <td>{{ nrst_bdoho.0 }}</td>
+                    <td>{{ nrst_bdoho.1 }}</td>
+                    <td>{{ nrst_bdoho.2 }}</td>
+                    <td>{{ nrst_bdoho.3 }}</td>
+                    <td>{{ nrst_bdoho.4 }}</td>
+                    <td>{{ nrst_bdoho.5 }}</td>
+                    <td>{{ nrst_bdoho.6 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button onclick="">
+    Exportar
+</button>
+
+{% endblock %}

@@ -4,7 +4,9 @@ from config.database import OracleDB
 from modules.clientes.cliente import customers
 from modules.sistemas.profi import profis
 from modules.sistemas.nightrunho import nr_status
+from modules.sistemas.nightrunbdoho import nr_status_bdoho
 from modules.sistemas.mafis_mk import getmafismkho
+from modules.sistemas.mafis_bdoho import getmafisbdoho
 from modules.sistemas.mafis_log_mk import mafisMK_log
 from modules.pedidos.pedido_sin_sid import get_OcSinSid
 from modules.tiendas.tienda import stores
@@ -36,6 +38,11 @@ def get_mafis_mk():
     l_mafisMkho = getmafismkho()
     return render_template('mafis_mk.html', mafismk1 = l_mafisMkho)
 
+@app.route('/mafisbdoho/', methods=['GET'])
+def get_mafis_bdoho():
+    l_mafisbdoho = getmafisbdoho()
+    return render_template('mafis_bdoho.html', mafisbdoho1 = l_mafisbdoho)
+
 @app.route('/mafismklog/', methods=['GET'])
 def mafis_mk_log():
     l_mafisMK_log = mafisMK_log()
@@ -51,6 +58,12 @@ def getNr_stat():
     l_nrst = nr_status()
     print (l_nrst)
     return render_template('nrstatus.html', nrst1 = l_nrst)
+
+@app.route('/nrstatusbdoho/', methods=['GET'])
+def getNr_stat_bdoho():
+    l_nrst_bdoho = nr_status_bdoho()
+    print (l_nrst_bdoho)
+    return render_template('nrstatusbdoho.html', nrst_bdoho1 = l_nrst_bdoho)
 
 @app.route('/pedsinsid/', methods=['GET'])
 def getOcSinSid():

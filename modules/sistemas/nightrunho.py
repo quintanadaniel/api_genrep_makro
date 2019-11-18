@@ -1,6 +1,6 @@
 from config.database import OracleDB
 
-def profis():
+def nrstatus():
     l_nrst = nr_status()
     print (l_nrst)
     return l_nrst
