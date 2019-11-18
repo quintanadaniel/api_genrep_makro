@@ -4,6 +4,8 @@ from config.database import OracleDB
 from modules.clientes.cliente import customers
 from modules.sistemas.profi import profis
 from modules.sistemas.nightrunho import nr_status
+from modules.sistemas.mafis_mk import getmafismkho
+from modules.sistemas.mafis_log_mk import mafisMK_log
 from modules.pedidos.pedido_sin_sid import get_OcSinSid
 from modules.tiendas.tienda import stores
 
@@ -28,6 +30,16 @@ def getCustomers():
     l_cust = customers()
     return render_template('clientes.html', cust1 = l_cust)
 
+
+@app.route('/mafismk/', methods=['GET'])
+def get_mafis_mk():
+    l_mafisMkho = getmafismkho()
+    return render_template('mafis_mk.html', mafismk1 = l_mafisMkho)
+
+@app.route('/mafismklog/', methods=['GET'])
+def mafis_mk_log():
+    l_mafisMK_log = mafisMK_log()
+    return render_template('mafismklogs.html', mafismklog1 = l_mafisMK_log)
 
 @app.route('/profimetrics/', methods=['GET'])
 def profimet():
