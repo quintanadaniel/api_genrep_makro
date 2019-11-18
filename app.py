@@ -8,6 +8,7 @@ from modules.sistemas.nightrunbdoho import nr_status_bdoho
 from modules.sistemas.mafis_mk import getmafismkho
 from modules.sistemas.mafis_bdoho import getmafisbdoho
 from modules.sistemas.mafis_log_mk import mafisMK_log
+from modules.sistemas.mafis_log_bdoho import mafisbdoho_log
 from modules.pedidos.pedido_sin_sid import get_OcSinSid
 from modules.tiendas.tienda import stores
 
@@ -47,6 +48,11 @@ def get_mafis_bdoho():
 def mafis_mk_log():
     l_mafisMK_log = mafisMK_log()
     return render_template('mafismklogs.html', mafismklog1 = l_mafisMK_log)
+
+@app.route('/mafisbdoholog/', methods=['GET'])
+def get_mafis_bdoho_log():
+    l_mafisbdoho_log = mafisbdoho_log()
+    return render_template('mafisbdohologs.html', mafisbdoholog1 = l_mafisbdoho_log)
 
 @app.route('/profimetrics/', methods=['GET'])
 def profimet():
