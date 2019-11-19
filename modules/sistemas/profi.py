@@ -1,10 +1,5 @@
 from config.database import OracleDB
-
-
-def profis():
-    l_profi = profi()
-    print (l_profi)
-    return l_profi
+from flask import jsonify
 
 def profi():
     sqlString = """select origin_name,a.*
@@ -15,5 +10,10 @@ def profi():
                     order by 2 desc"""
     ora = OracleDB().connect()
     res = ora.execute(sqlString)
-    data_profi = res.fetchall()
-    return data_profi
+    payload_profi = []
+    content_profi = {}
+    for data_profi in res:
+        content_profi = { 'origin_name': data_profi[0],'batch_id':data_profi[1],'rundate':data_profi[2],'origin_id':data_profi[3],'interface_group':data_profi[4],'load_start_date':data_profi[5],'load_end_date':data_profi[6],'status':data_profi[7],'upload_start_date':data_profi[8],'upload_end_date':data_profi[9] }
+        payload_profi.append(content_profi)
+        content_profi = {}
+    return jsonify(payload_profi)
