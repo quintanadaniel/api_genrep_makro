@@ -2,7 +2,10 @@ from flask import Flask
 from flask import request, jsonify, render_template, request
 from config.database import OracleDB
 from modules.clientes.cliente import customers
-from modules.sistemas.profi import profi
+from modules.profimetrics.profi import profi
+from modules.profimetrics.prof_logs import get_prof_log
+from modules.profimetrics.prof_1703_hosp import get_prof_1703_hosp
+from modules.profimetrics.prof_1704_hosp import get_prof_1704_hosp
 from modules.sistemas.nightrunho import nr_status
 from modules.sistemas.nightrunbdoho import nr_status_bdoho
 from modules.sistemas.mafis_mk import get_mafismk
@@ -34,6 +37,9 @@ def getCustomers():
     l_cust = customers()
     return render_template('clientes.html', cust1 = l_cust)
 
+##################################################
+# API para los procesos de MAFIS makro y Basualdo#
+##################################################
 
 @app.route('/mafismk/', methods=['GET'])
 def get_mafis_mk():
@@ -67,6 +73,10 @@ def get_mafis_bdoho_log():
     print(jsonObjMafisBdohoLogs)
     return jsonObjMafisBdohoLogs
 
+########################################
+# API para los procesos de Profimetrics#
+########################################
+
 @app.route('/profimetrics/', methods=['GET'])
 def profimet():
     l_profi = profi()
@@ -74,6 +84,34 @@ def profimet():
     jsonObjProfi = l_profi
     print (jsonObjProfi)
     return jsonObjProfi
+
+@app.route('/profimkhologs/', methods=['GET'])
+def get_profi_mkho_log():
+    l_profi_mkho_log = get_prof_log()
+    #return render_template('profimetrics.html', profi1 = l_profi)
+    jsonObjProfi_mkho_log = l_profi_mkho_log
+    print (jsonObjProfi_mkho_log)
+    return jsonObjProfi_mkho_log
+
+@app.route('/profmk1703hosp/', methods=['GET'])
+def get_profi_1703_hosp_mkho():
+    l_profi_mkho_log = get_prof_1703_hosp()
+    #return render_template('profimetrics.html', profi1 = l_profi)
+    jsonObjProfi_mkho_log = l_profi_mkho_log
+    print (jsonObjProfi_mkho_log)
+    return jsonObjProfi_mkho_log
+
+@app.route('/profmk1704hosp/', methods=['GET'])
+def get_profi_1704_hosp_mkho():
+    l_profi_mkho_log = get_prof_1704_hosp()
+    #return render_template('profimetrics.html', profi1 = l_profi)
+    jsonObjProfi_mkho_log = l_profi_mkho_log
+    print (jsonObjProfi_mkho_log)
+    return jsonObjProfi_mkho_log
+
+####################################
+# API para los procesos de sistemas#
+####################################
 
 @app.route('/nrmkho/', methods=['GET'])
 def getNr_mkho():
@@ -91,6 +129,10 @@ def getNr_stat_bdoho():
     jsonObjNrBdoho = l_nrst_bdoho
     print(jsonObjNrBdoho)
     return jsonObjNrBdoho
+
+#################################################################
+# API para los procesos de pedidos u ordenes de compra Logistica#
+#################################################################
 
 @app.route('/pedsinsid/', methods=['GET'])
 def getOcSinSid():
