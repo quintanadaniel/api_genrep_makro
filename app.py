@@ -7,6 +7,7 @@ from modules.clientes.cliente import customers
 ################################################################
 from modules.profimetrics.profi import profi
 from modules.profimetrics.prof_logs import get_prof_log
+from modules.profimetrics.prof_1701_hosp import get_prof_1701_hosp
 from modules.profimetrics.prof_1703_hosp import get_prof_1703_hosp
 from modules.profimetrics.prof_1704_hosp import get_prof_1704_hosp
 from modules.profimetrics.prof_1716_hosp import get_prof_1716_hosp
@@ -17,6 +18,8 @@ from modules.sistemas.mafis_mk import get_mafismk
 from modules.sistemas.mafis_bdoho import get_mafisbdo
 from modules.sistemas.mafis_log_mk import mafismklog
 from modules.sistemas.mafis_log_bdoho import mafisbdolog
+################################################################
+from modules.rep300.mkho300 import get_mkho300
 ################################################################
 from modules.pedidos.pedido_sin_sid import ocSinSid
 ################################################################
@@ -100,6 +103,14 @@ def get_profi_mkho_log():
     print (jsonObjProfi_mkho_log)
     return jsonObjProfi_mkho_log
 
+@app.route('/profmk1701hosp/', methods=['GET'])
+def get_profi_1701_hosp_mkho():
+    l_profi1701_hosp = get_prof_1701_hosp()
+    #return render_template('profimetrics.html', profi1 = l_profi)
+    jsonObjProfi_1701_hosp = l_profi1701_hosp
+    print (jsonObjProfi_1701_hosp)
+    return jsonObjProfi_1701_hosp
+
 @app.route('/profmk1703hosp/', methods=['GET'])
 def get_profi_1703_hosp_mkho():
     l_profi1703_hosp = get_prof_1703_hosp()
@@ -144,6 +155,19 @@ def getNr_stat_bdoho():
     jsonObjNrBdoho = l_nrst_bdoho
     print(jsonObjNrBdoho)
     return jsonObjNrBdoho
+
+#################################################################
+# API para los procesos de los reportes del 300 makro y basualdo#
+#################################################################
+
+@app.route('/mkho300/', methods=['GET'])
+def get_mkho_300():
+    l_mkho300 = get_mkho300()
+    print (l_mkho300)
+    #return render_template('nrstatusbdoho.html', nrst_bdoho1 = l_nrst_bdoho)
+    jsonObjNrmkho300 = l_mkho300
+    print(jsonObjNrmkho300)
+    return jsonObjNrmkho300
 
 #################################################################
 # API para los procesos de pedidos u ordenes de compra Logistica#
