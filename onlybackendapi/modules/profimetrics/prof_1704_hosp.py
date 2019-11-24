@@ -1,4 +1,4 @@
-from config.database import OracleDB
+from onlybackendapi.config.database import OracleDB
 from flask import jsonify
 
 def get_prof_1704_hosp():
